@@ -14,8 +14,8 @@ Ensure the following are installed on your system:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/rohanchauhan02/integrations_technical_assessment.git
+cd integrations_technical_assessment
 ```
 
 ### 2. Backend Setup
