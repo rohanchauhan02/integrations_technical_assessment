@@ -15,7 +15,6 @@ start: start-redis start-be start-fe
 
 # Start the Redis container
 start-redis:
-	docker images | awk print($2)
 	docker run --name redis-server -d -p 6379:6379 redis
 
 # Stop and remove the Redis container
@@ -49,8 +48,4 @@ clean: stop-redis
 	cd frontend && \
 	rm -rf node_modules
 
-
-script:
-	chmod +x script.sh
-	./script.sh
 
