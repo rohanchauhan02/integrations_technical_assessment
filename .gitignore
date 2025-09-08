@@ -6,4 +6,12 @@ __pycache__/
 
 *.pdf
 
-/frontend/node_modules/
+*/node_modules/*
+npm-debug.log
+yarn-error.log
+yarn-debug.log
+.DS_Store
+
+# Ignore .env file containing sensitive information
+.env
+
