@@ -4,10 +4,10 @@
 
 Ensure the following are installed on your system:
 
-- **Python 3.6+**: Required for the backend.
-- **Node.js and npm**: Needed for the frontend.
-- **Docker**: Utilized for running Redis.
-- **Make**: Required to run Makefile commands.
+* **Python 3.6+**: Required for the backend.
+* **Node.js and npm**: Needed for the frontend.
+* **Docker**: Utilized for running Redis.
+* **Make**: Required to run Makefile commands.
 
 ## Setup Instructions
 
@@ -20,43 +20,59 @@ cd integrations_technical_assessment
 
 ### 2. Backend Setup
 
-- Navigate to the backend directory:
+* Navigate to the backend directory:
 
   ```bash
   cd backend
   ```
 
-- Create and activate a virtual environment:
+* Create and activate a virtual environment:
 
-  - On macOS/Linux:
+  * On macOS/Linux:
 
     ```bash
     python3 -m venv venv
     source venv/bin/activate
     ```
 
-  - On Windows:
+  * On Windows:
 
     ```bash
     python -m venv venv
     source venv/bin/activate
     ```
 
-- Install the required packages:
+* Install the required packages:
 
   ```bash
   pip install -r requirements.txt
   ```
 
+* Create a `.env` file inside the `backend` directory and add the following environment variables:
+
+  ```env
+  AIRTABLE_CLIENT_ID=XXXXXXX
+  AIRTABLE_CLIENT_SECRET=XXXXXXX
+  AIRTABLE_REDIRECT_URI=http://localhost:3000/api/auth/callback/airtable
+
+  HUBSPOT_CLIENT_ID=XXXXX
+  HUBSPOT_CLIENT_SECRET=XXXXXXX
+  HUBSPOT_REDIRECT_URI=http://localhost:8000/integrations/airtable/oauth2callback
+  HUBSPOT_BASE_URL=https://app.hubspot.com
+
+  NOTION_CLIENT_ID=XXXXX
+  NOTION_CLIENT_SECRET=XXXX
+  ```
+
 ### 3. Frontend Setup
 
-- Navigate to the frontend directory:
+* Navigate to the frontend directory:
 
   ```bash
   cd ../frontend
   ```
 
-- Install the dependencies:
+* Install the dependencies:
 
   ```bash
   npm install
@@ -64,8 +80,8 @@ cd integrations_technical_assessment
 
 ### 4. Redis Setup
 
-- Ensure Docker is running on your system.
-- Pull and run the Redis Docker image:
+* Ensure Docker is running on your system.
+* Pull and run the Redis Docker image:
 
   ```bash
   docker run --name redis-server -d -p 6379:6379 redis
@@ -87,15 +103,18 @@ This command starts Redis, the backend, and the frontend.
 
 ### 2. Start Individual Services
 
-- Start Redis:
+* Start Redis:
+
   ```bash
   make start-redis
   ```
-- Start Backend:
+* Start Backend:
+
   ```bash
   make start-be
   ```
-- Start Frontend:
+* Start Frontend:
+
   ```bash
   make start-fe
   ```
@@ -117,14 +136,6 @@ make clean
 ```
 
 This command stops Redis, removes virtual environments, clears cache files, and deletes `node_modules`.
-
-### 5. Run a Custom Script
-
-If you have a script named `script.sh`, you can execute it with:
-
-```bash
-make script
-```
 
 ## Additional Notes
 

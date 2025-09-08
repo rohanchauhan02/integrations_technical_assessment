@@ -23,7 +23,7 @@ stop-redis:
 	docker rm redis-server || true
 
 # Set up and start the backend
-start-be: env
+start-be: 
 	cd backend && \
 	python3 -m venv venv && \
 	. venv/bin/activate && \
